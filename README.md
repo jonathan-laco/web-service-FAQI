@@ -3,6 +3,12 @@
 ![Faculdade QI Logo](https://qi.edu.br/wp-content/uploads/2023/09/faqi-300x116-1.png)
 
 Este é um projeto desenvolvido em **Laravel** para gerenciamento de clientes, criado **para fins acadêmicos**. O sistema permite o cadastro, atualização, remoção e consulta de clientes, com a validação dos dados de endereço e integração com a API ViaCEP para consulta de CEP.
+## Vídeo Demonstrativo 
+
+
+https://github.com/user-attachments/assets/9f93fa33-d03f-4927-83d9-49c240a7797a
+
+
 
 ## Funcionalidades
 

@@ -1,92 +1,106 @@
-# viaCep
+# Web Service FAQI
 
-Este projeto é uma API simples desenvolvida em **Laravel** para realizar consultas de CEP através da API **ViaCEP**, com funcionalidades de cadastro, edição e exclusão de usuários. Este é um **projeto acadêmico da Faculdade QI (FAQI)**.
+![Faculdade QI Logo](https://qi.edu.br/wp-content/uploads/2023/09/faqi-300x116-1.png)
 
-## Tecnologias utilizadas
-
--   **Laravel**: Framework PHP
--   **Tailwind CSS**: Framework CSS para estilização
--   **API ViaCEP**: Para consulta de endereços via CEP
--   **PHP 8.x**: Versão do PHP utilizada no desenvolvimento
-
-## Requisitos
-
-Antes de rodar o projeto, você precisa ter os seguintes requisitos instalados em sua máquina:
-
--   [PHP 8.x ou superior](https://www.php.net/downloads)
--   [Composer](https://getcomposer.org/download/)
--   [Laravel 10.x](https://laravel.com/docs/10.x)
--   [MySQL](https://www.mysql.com/downloads/) ou outro banco de dados relacional de sua escolha
-
-## Instalação
-
-### 1. Clonar o repositório
-
-Clone este repositório para sua máquina local utilizando o comando:
-
-```bash
-git clone https://github.com/usuário/viaCep.git
-```
-
-### 2. Instalar as dependências
-
-Acesse o diretório do projeto e execute o comando abaixo para instalar as dependências do Laravel:
-
-```bash
-cd viaCep
-composer install
-```
-
-### 3. Configurar o arquivo `.env`
-
-Copie o arquivo `.env.example` para um novo arquivo `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Abra o arquivo `.env` e configure suas credenciais de banco de dados:
-
-```bash
-DB_DATABASE=nome_do_banco
-DB_USERNAME=seu_usuario
-DB_PASSWORD=sua_senha
-```
-
-### 4. Gerar a chave de aplicação
-
-Execute o comando para gerar a chave da aplicação:
-
-```bash
-php artisan key:generate
-```
-
-### 5. Rodar as migrações
-
-Se o projeto utilizar banco de dados, execute as migrações para criar as tabelas necessárias:
-
-```bash
-php artisan migrate
-```
-
-### 6. Rodar o servidor
-
-Agora você pode rodar o servidor de desenvolvimento do Laravel:
-
-```bash
-php artisan serve
-```
-
-O servidor estará rodando em [http://localhost:8000](http://localhost:8000).
+Este é um projeto desenvolvido em **Laravel** para gerenciamento de clientes, criado **para fins acadêmicos**. O sistema permite o cadastro, atualização, remoção e consulta de clientes, com a validação dos dados de endereço e integração com a API ViaCEP para consulta de CEP.
 
 ## Funcionalidades
 
--   **Cadastro de usuários**: Adiciona novos usuários ao sistema com informações de nome, e-mail e CEP.
--   **Consulta de CEP**: Através da API ViaCEP, consulta os dados do endereço baseado no CEP informado.
--   **Edição de usuários**: Permite editar informações de usuários cadastrados.
--   **Exclusão de usuários**: Remove usuários do banco de dados.
--   **Interface amigável**: Utiliza o Tailwind CSS para uma interface limpa e funcional.
+-   **Cadastro de Clientes**: Adiciona um cliente com informações como nome, endereço, cidade, estado e CEP.
+-   **Atualização de Clientes**: Permite atualizar as informações de um cliente existente.
+-   **Exclusão de Clientes**: Remove um cliente do banco de dados.
+-   **Consulta de CEP**: Utiliza a API ViaCEP para consultar informações de um CEP.
 
-## Licença
+## Dados Aceitos
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Os seguintes dados são aceitos para o cadastro e atualização dos clientes:
+
+-   **Nome** (string) - Nome do cliente.
+-   **Logradouro** (string) - Rua, avenida ou outra via.
+-   **Número** (string) - Número do endereço.
+-   **Complemento** (string, opcional) - Informações adicionais sobre o endereço.
+-   **Bairro** (string) - Bairro do endereço.
+-   **Cidade** (string) - Cidade do endereço.
+-   **UF** (string) - Unidade federativa (estado) com 2 caracteres.
+-   **CEP** (string) - Código postal no formato `xxxxxxxx`.
+
+## Como o Sistema Funciona
+
+O sistema exibe os clientes cadastrados diretamente na página inicial (`/`). A seguir estão as principais ações que podem ser realizadas:
+
+### 1. **Cadastrar Novo Cliente**
+
+Na página de índice, você pode cadastrar um novo cliente fornecendo os dados:
+
+-   Nome
+-   Logradouro
+-   Número
+-   Complemento (opcional)
+-   Bairro
+-   Cidade
+-   UF
+-   CEP
+
+### 2. **Atualizar Cliente**
+
+Na lista de clientes, há uma opção para editar os dados de um cliente. Após realizar as alterações, o sistema atualizará as informações no banco de dados.
+
+### 3. **Excluir Cliente**
+
+Você também pode excluir um cliente diretamente da página inicial. Ao confirmar, o cliente será removido do banco de dados.
+
+### 4. **Consultar CEP**
+
+A consulta de um CEP pode ser realizada na página, onde será possível preencher o campo de CEP, e o sistema irá buscar as informações relacionadas ao CEP fornecido.
+
+## Como Rodar o Projeto Localmente
+
+1. Clone o repositório:
+
+    ```bash
+    git clone https://github.com/jonathan-laco/web-service-FAQI.git
+    ```
+
+2. Acesse o diretório do projeto:
+
+    ```bash
+    cd web-service-FAQI
+    ```
+
+3. Instale as dependências:
+
+    ```bash
+    composer install
+    ```
+
+4. Copie o arquivo `.env.example` para `.env`:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+5. Gere a chave de aplicação:
+
+    ```bash
+    php artisan key:generate
+    ```
+
+6. Execute as migrações para criar as tabelas no banco de dados:
+
+    ```bash
+    php artisan migrate
+    ```
+
+7. Inicie o servidor:
+
+    ```bash
+    php artisan serve
+    ```
+
+8. O projeto estará disponível em `http://127.0.0.1:8000`.
+
+## Tecnologias Usadas
+
+-   **Laravel** (Framework PHP)
+-   **MySQL** (Banco de dados)
+-   **API ViaCEP** (Consulta de CEP)

@@ -33,7 +33,7 @@ Os seguintes dados são aceitos para o cadastro e atualização dos clientes:
 ## Como o Sistema Funciona
 
 O sistema exibe os clientes cadastrados diretamente na página inicial (`/`). A seguir estão as principais ações que podem ser realizadas:
-
+Certifique-se de ter o [Composer](https://getcomposer.org/) e o [PHP](https://www.php.net/manual/pt_BR/install.php) instalados.
 ### 1. **Cadastrar Novo Cliente**
 
 Na página de índice, você pode cadastrar um novo cliente fornecendo os dados:
